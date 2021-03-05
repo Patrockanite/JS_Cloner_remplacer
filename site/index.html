@@ -5,9 +5,26 @@
         <title>Cloner remplacer supprimer</title>
     </head>
     <body>
-    <h1>Cloner, remplacer, supprimer....</h1>
-    <h3>Cloner</h3>
-    <p>On ne peut pas faire la copie d'un élément car ils sont accessibles par référence<br />
-        C'est pour cette raison que l'on va cloner</p>
+	    <h1>Cloner, remplacer, supprimer....</h1>
+	    <h3>Cloner</h3>
+	    <p id='mon_para'>On ne peut pas faire la copie d'un élément car ils sont accessibles par référence<br />
+	        C'est pour cette raison que l'on va cloner </p>
+	    <script type="text/javascript">
+	    	var nouveau_lien = document.createElement('a'); //                           On créé l'élément lien
+	    	var text_nouveau_lien=document.createTextNode("Mes essais"); //              On créé son texte
+	    	nouveau_lien.id = 'mon_lien' ;                            //                 On créé son ID 
+	    	nouveau_lien.href = 'https://patrockanite.github.io/coursera_test/site/'; // On créé son adresse
+	    	nouveau_lien.appendChild(text_nouveau_lien) ; // On ajoute le texte à l'élément
+	    	document.getElementById('mon_para').appendChild(nouveau_lien) ;
+	    	
+			/**************** Création d'une seconde variable **************/
+	    	var second_variable = document.getElementById('mon_lien') ; // on récupère l'élément mon_lien par son ID
+	    	second_variable.href = "https://www.coursera.org" ;
+
+	    	/**************** Voyons la valeur de l'attribut HREF ******************/
+	    	
+	    	alert(nouveau_lien.href);
+
+	    </script>
     </body>
 </html>
