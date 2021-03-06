@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <title>Cloner remplacer supprimer</title>
     </head>
     <body>
 	    <h1>Cloner, remplacer, supprimer....</h1>
-	    <h3>Cloner</h3>
+	    <h3>Tests de variables : les références</h3>
 	    <p id='mon_para'>On ne peut pas faire la copie d'un élément car ils sont accessibles par référence<br />
-	        C'est pour cette raison que l'on va cloner </p>
-	    <script type="text/javascript">
+	        C'est pour cette raison que l'on doit cloner<br/>
+	        test de mofication d'une même &lt;href&gt; en passant par 2 variables pointant vers la même adresse </p>
+	    <script>
 	    	var nouveau_lien = document.createElement('a'); //                           On créé l'élément lien
 	    	var text_nouveau_lien=document.createTextNode("Mes essais"); //              On créé son texte
 	    	nouveau_lien.id = 'mon_lien' ;                            //                 On créé son ID 
@@ -26,5 +27,19 @@
 	    	alert(nouveau_lien.href);
 
 	    </script>
+	    <!----------------- Essai de copie d'une variable ----------------->
+	    <script>
+	    	var copie_de_nouveau_lien = nouveau_lien ;
+	    	copie_de_nouveau_lien.href = "https://timpierceguitar.com" ;
+	    	alert("la copie renvoie : " + nouveau_lien.href) ;
+	    </script>
+	    <p>Et maintenant que renvoie le lien de départ ?</p>
+	    <script>
+	    	alert("second_variable renvoie aussi : "+ second_variable.href) ;
+	    </script>
+	    <p>Les 3 variables pointent à la même adresse !</p>
+	    <h3>Cloner</h3>
+
+
     </body>
 </html>
