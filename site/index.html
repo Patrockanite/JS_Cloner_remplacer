@@ -6,7 +6,7 @@
     </head>
     <body>
 	    <h1>Cloner, remplacer, supprimer....</h1>
-	    <h3>Tests de variables : les références</h3>
+	    <h2>Tests de variables : les références</h2>
 	    <p id='mon_para'>On ne peut pas faire la copie d'un élément car ils sont accessibles par référence<br />
 	        C'est pour cette raison que l'on doit cloner<br/>
 	        test de mofication d'une même &lt;href&gt; en passant par 2 variables pointant vers la même adresse </p>
@@ -38,7 +38,24 @@
 	    	alert("second_variable renvoie aussi : "+ second_variable.href) ;
 	    </script>
 	    <p>Les 3 variables pointent à la même adresse !</p>
-	    <h3>Cloner</h3>
+	    <h2>Cloner</h2>
+	    <p id = "para_pour_h">Dans ce sous-chapitre, on va cloner un élément du DOM. Pour exemple, on va prendre un &lt;h3&gt;.</p>
+	    <script>
+	    	/************ Création su sous-titre ******************/
+	    	var sous_titre_a_cloner = document.createElement('h3') ;
+	    	var text_du_h3 = document.createTextNode("sous-titre à cloner") ;
+	    	sous_titre_a_cloner.id = "h_a_cloner" ;
+	    	sous_titre_a_cloner.appendChild(text_du_h3) ;
+	    	document.getElementById("para_pour_h").appendChild(sous_titre_a_cloner) ;
+	    	/********* Création du clone ***********************/
+	    	var sous_titre_clone = sous_titre_a_cloner.cloneNode(false) ; //pas d'enfant
+	 		var text_du_clone = document.createTextNode("sous-titre cloné") ;
+	 		sous_titre_clone.id = "h_clone" ;
+	 		sous_titre_clone.appendChild(text_du_clone);
+	 		document.getElementById("para_pour_h").appendChild(sous_titre_clone) ;
+
+
+	    </script>
 
 
     </body>
