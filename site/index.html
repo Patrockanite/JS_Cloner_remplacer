@@ -24,39 +24,52 @@
 
 	    	/**************** Voyons la valeur de l'attribut HREF ******************/
 	    	
-	    	alert(nouveau_lien.href);
+	    	alert("Le lien pointe vers : "+nouveau_lien.href);
 
 	    </script>
 	    <!----------------- Essai de copie d'une variable ----------------->
 	    <script>
 	    	var copie_de_nouveau_lien = nouveau_lien ;
 	    	copie_de_nouveau_lien.href = "https://timpierceguitar.com" ;
-	    	alert("la copie renvoie : " + nouveau_lien.href) ;
+	    	alert("la copie qui a un lien modifié renvoie : " + nouveau_lien.href) ;
 	    </script>
 	    <p>Et maintenant que renvoie le lien de départ ?</p>
 	    <script>
 	    	alert("second_variable renvoie aussi : "+ second_variable.href) ;
 	    </script>
-	    <p>Les 3 variables pointent à la même adresse !</p>
-	    <h2>Cloner</h2>
+	    <p>Les 3 variables pointent vers la même adresse car elles stockent la même référence</p>
+	    <h2>Cloner :</h2>
 	    <p id = "para_pour_h">Dans ce sous-chapitre, on va cloner un élément du DOM. Pour exemple, on va prendre un &lt;h3&gt;.</p>
 	    <script>
+
 	    	/************ Création su sous-titre ******************/
 	    	var sous_titre_a_cloner = document.createElement('h3') ;
 	    	var text_du_h3 = document.createTextNode("sous-titre à cloner") ;
 	    	sous_titre_a_cloner.id = "h_a_cloner" ;
 	    	sous_titre_a_cloner.appendChild(text_du_h3) ;
 	    	document.getElementById("para_pour_h").appendChild(sous_titre_a_cloner) ;
+
 	    	/********* Création du clone ***********************/
 	    	var sous_titre_clone = sous_titre_a_cloner.cloneNode(false) ; //pas d'enfant
 	 		var text_du_clone = document.createTextNode("sous-titre cloné") ;
 	 		sous_titre_clone.id = "h_clone" ;
 	 		sous_titre_clone.appendChild(text_du_clone);
 	 		document.getElementById("para_pour_h").appendChild(sous_titre_clone) ;
-
-
+	 		
 	    </script>
-
+	    <h2>Remplacer :</h2>
+	    <p>On va remplacer le sous-titre (sous-titre à remplacer) avec la méthode replaceChild()</p>
+	    <h2>sous-titre à remplacer</h2>
+	    <script>
+	    	//var allParas = document.getElementsByTagName('p');
+      		var les_h2 = document.getElementsByTagName('h2') ; //on récupère la collection de h2 du document sous forme d'un tableau
+      		//var num = allParas.length;
+      		//var nb_para = les_h2.length;
+      		//alert("nombre de paragraphes : " + num + " et <h2> : " + nb_para) ;
+      		var text_remplacant = document.createTextNode("sous-titre remplaçant à la place de à remplacer") ; // On créé un noeud textuel qui contient le text de remplacement
+      		les_h2[3].replaceChild(text_remplacant,les_h2[3].firstChild) ; // On remplace le premier enfant (noeud textuel) initial par le nouveau noeud textuel. 
+	
+	    </script>
 
     </body>
 </html>

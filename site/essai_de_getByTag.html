@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>getElementsByTagName example</title>
+  <style type="text/css">
+    #change{
+      color: blue ;
+    }
+    #paragraphe_1{
+      color: red ;
+    }
+  </style>
+</head>
+<body style="border: solid green 3px">
+  <p id="paragraphe_1">paragraphe qui change de couleur</p>
+  <p>Some outer text</p>
+
+  <div id="div1" style="border: solid blue 3px">
+    <p>Some div1 text</p>
+    <p>Some div1 text</p>
+    <p>Some div1 text</p>
+
+    <div id="div2" style="border: solid red 3px">
+      <p>Some div2 text</p>
+      <p>Some div2 text</p>
+    </div>
+  </div>
+
+  <p>Some outer text</p>
+  <p>Some outer text</p>
+  <h3>sous-titre 1</h3>
+  <h3>sous-titre 2</h3>
+  <h3>sous-titre 3</h3>
+
+
+    <script>
+    
+      var allParas = document.getElementsByTagName('p');
+      var num = allParas.length;
+      //alert("nombre de paragraphes : " + num) ;
+      alert(allParas[0].id) ;
+      allParas[0].id = "change" ;
+      alert(allParas[0].id) ;
+
+    
+  </script>
+  <script>
+    var collec_soustitre = document.getElementsByTagName('h3');
+    //var nbsoustitres = collec_soustitre.length ;
+    //alert("nombre de sous-titres " + nbsoustitres) ;
+    var nouveauText = document.createTextNode('sous-titre modifié par la méthode replaceChild()') ;
+    /*var a_modifier = collec_soustitre[1] ;
+    a_modifier.replaceChild(nouveauText,a_modifier.firstChild) ;*/
+    collec_soustitre[2].replaceChild(nouveauText,collec_soustitre[2].firstChild) ;
+  </script>
+
+</body>
+</html>
