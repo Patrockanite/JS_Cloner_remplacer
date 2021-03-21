@@ -18,5 +18,14 @@
 		var lien_2 = document.getElementById("lien ajouté") ;
 		lien_2.appendChild(lien_recupere) ;
 	</script>
+	<h2>Vérifier la présence d'enfants</h2>
+	<p>Il est assez facile d'avoir un retour sur la présence d'éléments enfants. La méthode hasChildNodes() retourne un booléen que l'on pourra utiliser</p>
+	<p id="verif_enfants">Un peu de texte<a = href""> et un lien pour tester la méthode</a></p>
+	<script>
+		var paragraph = document.getElementsByTagName('p')[2] ;
+		if(paragraph.hasChildNodes()){
+			alert("l'élement a bien un élément enfant") ;
+		} ;
+	</script>
 </body>
 </html>
