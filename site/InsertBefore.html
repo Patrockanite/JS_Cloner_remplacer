@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>InsertBefore</title>
+	<style type="text/css">
+		chapitre em{
+			color: red ;
+		}
+	</style>
+	<!-- Il n'y a pas de fonction native InsertAfter() -->
+</head>
+<body>
+	<h1>Insérer un élément html avant</h1>
+	<chapitre id ="chap1">
+		<h2>Chapitre 1 : Insérer avant avec insertBefore()</h2>
+		<p>La méthode permet d'insérer un élément où l'on veut puisque l'on peut insérer l'élément créer avant l'élément désigné.</p>
+			<ol>Elle reçoit 2 paramètres : 
+				<li>l'élément créé à insérer</li>
+				<li>l'élément avant lequel on va placer le nouvel élément</li>
+			</ol>
+			<p>Un peu de code pour faire des essais :</p>
+
+		<p id="para_4">Un peu de texte pour faire l'essai <a href="">et un lien</a> qui ne sert à rien.</p>
+	</chapitre>
+
+	<script>
+	/*************** Script pour insertBefore() *******************/
+	
+		var para4 = document.getElementsByTagName('p')[2];
+		var ajout = document.createElement('em') ;
+		var ajout_txt = document.createTextNode(" puis un peu de texte en emphase ajouté par du code JS pour tester mais ") ;
+		ajout.appendChild(ajout_txt) ; // attention de bien ajouter le texte !!
+		para4.insertBefore(ajout,para4.lastChild) ;
+
+
+
+	</script>
+</body>
+</html>
