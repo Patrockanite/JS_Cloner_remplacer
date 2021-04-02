@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Recréer une structure DOM</title>
+</head>
+<body>
+    <h1>Exercice : Recréer une structure DOM</h1>
+    <section = id="explications">
+        L'exercice consiste à recréer "du texte" mélangé à divers éléments tel que des &lt;a&gt; et des &lt;strong&gt;.
+    </section>
+    <h3>Code à reproduire :</h3>
+    <div id="divTP1">
+        Le <strong>Word Wilde Web Consortium</strong>, abrégé par le sigle <strong>W3C</strong>, est un<a href="https://fr.wikipedia.org/wiki/World_Wide_Web_Consortium" 
+        title="Organisme de normalisation">
+         organisme de standardisation</a> à but non-lucratif chargé de promouvoir la compatibilité des technologies du <a href="https://fr.wikipedia.org/wiki/World_Wide_Web">
+            Word Wilde Web</a>.
+    </div>
+    <p>La ligne suivante est générée par le JavaScript. Ici je n'ai pas utilisé de tableau. Un tableau aurait été préférable</p>
+    <script>
+        /* Définition de div2 */
+        var div2 = document.createElement('div');
+        div2.id = "div2TP1"; // affectation de l'attribur id
+
+        /* définition et ajout du début de texte */
+        var debut = document.createTextNode("Le");
+        div2.appendChild(debut);
+
+        /*Définition et ajout de strong_1 */
+        var strong_1 = document.createElement('strong');
+        var Txtstrong1 = document.createTextNode(" Word Wilde Web Consortium");
+        strong_1.appendChild(Txtstrong1);
+        div2.appendChild(strong_1);
+
+        /* Définition et ajout de suite1 */
+        var suite1 = document.createTextNode(", abrégé par le sigle");
+        div2.appendChild(suite1);
+
+        /* Définition et ajout de strong_2 */
+        var strong_2 = document.createElement('strong');
+        var Txtstrong2 = document.createTextNode(" W3C");
+        strong_2.appendChild(Txtstrong2);
+        div2.appendChild(strong_2);
+        
+        /* Définition et ajout de suite2 */
+        var suite2 = document.createTextNode(", est un");
+        div2.appendChild(suite2);
+
+        /* Définition et ajout de lien1 */
+        var lien1 = document.createElement('a') ;
+        lien1.href = "https://fr.wikipedia.org/wiki/World_Wide_Web_Consortium" ;
+        lien1.title="Organisme de normalisation" ;
+        var TxtLien1 = document.createTextNode(" organisme de standardisation") ;
+        lien1.appendChild(TxtLien1) ;
+        div2.appendChild(lien1);
+
+        /* Définition et ajout de suite3 */
+        var suite3 = document.createTextNode(" à but non-lucratif chargé de promouvoir la compatibilité des technologies du ");
+        div2.appendChild(suite3);
+        
+        /* Définition et ajout de lien2 */
+        var lien2 = document.createElement('a') ;
+        lien2.href = "https://fr.wikipedia.org/wiki/World_Wide_Web" ;
+        lien2.target="_blank" ;
+        var TxtLien2 = document.createTextNode(" Word Wilde Web") ;
+        lien2.appendChild(TxtLien2) ;
+        div2.appendChild(lien2);
+
+        /* Définition et ajout de fin */
+        var fin = document.createTextNode(".");       
+        div2.appendChild(fin) ;
+
+        /* Ajout de div2 à la fin de body */
+        var corps = document.getElementsByTagName('body') ;
+        corps[0].appendChild(div2) ;
+        
+    </script>
+</body>
+</html>
