@@ -3,13 +3,14 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Recréer une structure DOM</title>
+    <title>Recréer une structure DOM et suite</title>
 </head>
 <body>
-    <h1>Exercice : Recréer une structure DOM</h1>
+    <h1>Exercice : Recréer une structure DOM + exercices suivants</h1>
     <section = id="explications">
         L'exercice consiste à recréer "du texte" mélangé à divers éléments tel que des &lt;a&gt; et des &lt;strong&gt;.
     </section>
+    <h2>Exercice 1</h2>
     <h3>Code à reproduire :</h3>
     <div id="divTP1">
         Le <strong>Word Wilde Web Consortium</strong>, abrégé par le sigle <strong>W3C</strong>, est un<a href="https://fr.wikipedia.org/wiki/World_Wide_Web_Consortium" 
@@ -65,5 +66,48 @@
         corps[0].appendChild(div2) ;
 
     </script>
+    <h2>Exercice 2</h2>
+    <h3>Code à reproduire :</h3>
+    <div id="divTP2">
+        <p>Langages basés sur EMAScript :</p>
+        <ul>
+            <li>JavaScript</li>
+            <li>JScript</li>
+            <li>ActionScript</li>
+            <li>EX4</li>
+        </ul>
+    </div>
+    <p>Ligne générée par le JavaScript :</p>
+
+    <script>
+        /* Définition de TP2 */
+        var TP2 = document.createElement('div') ;
+        TP2.id = 'divXTP2' ;
+
+        /* définition et ajout de para_1 */
+        var para_1 = document.createElement('p');
+        var Txt_para_1 = document.createTextNode("Langages basés sur EMAScript :");
+        para_1.appendChild(Txt_para_1);
+
+        /* définition du texte de la liste dans un tableau 
+            Attention on ne peut pas avoir des stings comme composantes du tableau, il faut passer par la méthode createTextNode() ! */
+        var TxtListe = [document.createTextNode("JavaScript"),document.createTextNode("JScript"),document.createTextNode("ActionScript"),document.createTextNode("EX4")];
+
+        /* définition et ajout de la liste */
+        var liste1 = document.createElement('ul');
+
+        for(let i=0 , c=TxtListe.length;i < c ; i++){ //attention ce sont des points virgules et non des virgules - On peut aussi affecter une variable c .
+            let elem_liste = document.createElement('li') ;            
+            elem_liste.appendChild(TxtListe[i]) 
+            liste1.appendChild(elem_liste) ;
+        }
+        TP2.appendChild(para_1) ;
+        TP2.appendChild(liste1) ;
+
+        /* ajout de TP2 à body en utilisant une autre manière de faire */
+        document.body.appendChild(TP2) ;
+
+    </script>
+
 </body>
 </html>
