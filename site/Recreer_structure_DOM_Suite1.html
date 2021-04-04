@@ -58,7 +58,7 @@
             var list_description = document.createElement('dl') ;
             for (var id in Liste_definitions){ // On parcourt le dictionnaire
                 var item_list = document.createElement('dt'); 
-                var text_item = document.createTextNode(id) ;
+                var text_item = document.createTextNode(id) ; // On récupére l'index de dictionnaire qui servira de titre d'item à chaque ligne
                 item_list.appendChild(text_item) ;
                 
                 var def_de_item = document.createElement('dd') ;
