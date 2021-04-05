@@ -10,6 +10,9 @@
                 color:rgb(17, 238, 17);
                 background-color: rgb(84, 87, 90);
             }
+            .correction, #correction_TP3{
+                background-color: lightcoral;
+            }
         </style>
     </head>
     <body>
@@ -56,7 +59,7 @@
             /* définition de la liste de descrition */ 
 
             var list_description = document.createElement('dl') ;
-            for (var id in Liste_definitions){ // On parcourt le dictionnaire
+            for (var id in Liste_definitions){ // On parcourt le dictionnaire avec une boucle for in
                 var item_list = document.createElement('dt'); 
                 var text_item = document.createTextNode(id) ; // On récupére l'index de dictionnaire qui servira de titre d'item à chaque ligne
                 item_list.appendChild(text_item) ;
@@ -76,6 +79,42 @@
 
 
 
+        </script>
+        <h2 class="correction">Corrigé :</h2>
+        <p class="correction">Le corrigé utilise un tableau différent composé d'objets littéraux qui sera parcouru par une boucle for classique.
+            <br />C'est une approche un peu différente de ma proposition où je parcours l'objet littéral avec une boucle for in.</p>
+        <script>
+            /*Création du conteneur */
+            var TP3_correction = document.createElement('div') ;
+            TP3_correction.id="correction_TP3";
+
+            /* On place le texte des objets, eux-mêmes placés dans un tableau */
+            var Langages_tab = [{t:"JavaScript", d:"JavaScript est un langage de programmation de scripts principalement utlisé dans les pages web interactives mais aussi côté serveur."}, {t:"JScript", d:"JScript est le nom générique de plusieurs implémentations d'ECMAScript 3 créées par Microsoft."},{t:"ActionScript",d:"ActionScript est le langage de programmation utilisé au sein d'applications clientes (Adobe Flash, Adobe Flex) et serveur (Flash media server, Jrun, Macromedia Generator)"},{d:"EX4",t:"ECMAScript for XML (EX4) est une extension XML au langage ECMAScript."}];
+
+            /* On crée le paragraphe */
+            var para_correction = document.createElement('p');
+            var Txt_para_correction = document.createTextNode("Langages basés sur ECMAScript :");
+            para_correction.appendChild(Txt_para_correction) ;
+
+            /* On crée la liste et on boucle pour ajouter chaque composante */
+            var DefList = document.createElement('dl'), defTerm, defTermTxt, defDefn, defDefnText;
+            for(var i=0, c=Langages_tab.length; i < c; i++){
+                defTerm = document.createElement('dt') ;
+                defDefn = document.createElement('dd') ;
+                defTermTxt = document.createTextNode(Langages_tab[i].t);
+                defDefnText = document.createTextNode(Langages_tab[i].d);
+                defTerm.appendChild(defTermTxt) ;
+                defDefn.appendChild(defDefnText) ;
+                DefList.appendChild(defTerm) ;
+                DefList.appendChild(defDefn) ;
+            }
+
+            /* On insére tout dans TP3_Correction */
+            TP3_correction.appendChild(para_correction) ;
+            TP3_correction.appendChild(DefList) ;
+
+            /* Puis tout dans le body */
+            document.body.appendChild(TP3_correction) ;
         </script>
     </body>
 </html>

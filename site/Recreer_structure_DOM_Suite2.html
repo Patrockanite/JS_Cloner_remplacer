@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Reproduire le DOM avec objets littéraux suite 2</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+    </head>
+    <body>
+        <h1>Reproduire le DOM avec objets littéraux Suite 2</h1>
+        <section id= "explications">
+            L'exercice 4 est un peu plus corsé. Attention aux éléments imbriqués les uns dans les autres ! 
+        </section>
+
+        <h2>HTML qui doit être reproduit par du JavaScript :</h2>
+
+        <!-- Ca commence ici -->
+        <div id="divTP4">
+            <form enctype="multipart/form-data" method="POST" action="upload.php">
+                <fieldset>
+                    <legend>Uploader une image</legend>
+                    <div style="text-align: center">
+                        <label for="inputUpload">image à Uploader :</label>
+                        <input type="file" name="inputUpload" id="inputUpload" />
+                        <br /><br />
+                        <input type="submit" value="Envoyer" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <h2>HTML généré par le JavaScript :</h2>
+        
+        <script language="javascript">
+        	 
+
+            /* Création de la div conteneur */
+            var mon_TP4 = document.createElement('div');
+            mon_TP4.id = "mon_div_TP4" ;
+
+            /* création de la structure du formulaire */
+            var form = document.createElement('form') ;
+            var fieldset = document.createElement('fieldset') ;//fieldset
+            var legend = document.createElement('legend');
+           	var newtext = document.createTextNode('Uploader une image') ;
+            var center = document.createElement('div') ; // center / ex-div_de_form
+                        
+            form.action = 'upload.php' ;
+            form.enctype = 'multipart/form-data' ;
+            form.method = 'post' ;
+           
+            center.setAttribute('style', 'text-align: center') ;
+                       
+            legend.appendChild(newtext) ;
+
+            /* ajout de legende et center à fieldset */
+           fieldset.appendChild(legend) ;
+           fieldset.appendChild(center) ;
+
+            form.appendChild(fieldset) ;
+
+            /* création des champs */ 
+           
+            var label = document.createElement('label'), labelText = document.createTextNode('image à Uploader : ');
+            var input  = document.createElement('input');
+            var br = document.createElement('br'); 
+            var submit = document.createElement('input');
+
+                input.type = 'file' ;
+                input.id = 'inputUpload' ;
+                input.name = input.id ;
+
+                submit.type = 'submit';
+                submit.value = 'envoyer';     
+                    
+                label.htmlFor = 'inputUpload' ; //Ici je ne sais pas à quoi sert cet attribut
+                label.appendChild(labelText) ;    
+
+                center.appendChild(label) ;         
+                center.appendChild(input) ;  
+                center.appendChild(br);
+                center.appendChild(br.cloneNode(false)) ; // Ici, je ne sais pas quel est l'utilité de cette méthode
+                center.appendChild(submit);
+
+        
+            mon_TP4.appendChild(form) ;
+
+            /* ajout de mon_TP4 au body */
+            document.body.appendChild(mon_TP4) ;
+
+        </script>
+    </body>
+</html>
